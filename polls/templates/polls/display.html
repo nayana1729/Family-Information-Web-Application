@@ -1,0 +1,17 @@
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ form.as_p }}
+
+{% for profile in profiles %}
+    {{ profile.name}}
+    <br> 
+    {{ profile.age}}
+    <br> 
+    {{ profile.address}}
+    <br> 
+    {{ profile.gender}}
+    <br> 
+    <br> 
+    <br> 
+{% endfor %}
+</form>
