@@ -26,7 +26,7 @@ def search_profiles(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             search = request.POST.get('search')
-            queryset = Profile.objects.filter(Q(name__icontains = search | Q(relation__icontains = search))
+            queryset = Profile.objects.filter(Q(name__icontains = search) | Q(relation__icontains = search))
             return render (request, 'polls/search_results.html', {'profiles' : queryset})
     else:
         form = SearchForm()
