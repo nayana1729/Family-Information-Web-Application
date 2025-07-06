@@ -5,21 +5,7 @@ from polls.forms import SearchForm
 from django.urls import reverse
 from polls.forms import NewProfile
 from .models import Profile
-from django.db.models import Q 
-
-def bmi_intro(request):
-    if request.method == "POST":
-        form = BMIForm(request.POST)
-        if form.is_valid():
-            height = request.POST.get('height')
-            weight = request.POST.get('weight')
-            height = float(height)
-            weight = float(weight)
-            result = weight/(height * height)
-            return HttpResponse(f'<h1>Your BMI is {result}</h1>')
-    else:
-        form = BMIForm()
-    return render(request, 'polls/bmi.html', {'form': form})
+from django.db.models import Q
     
 def search_profiles(request):
     if request.method == "POST":
